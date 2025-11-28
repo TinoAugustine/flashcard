@@ -1,0 +1,32 @@
+{
+  "apiVersion": 3,
+  "name": "setupmyhotel/flashcards",
+  "title": "Flashcards (CSV)",
+  "category": "widgets",
+  "icon": "welcome-learn-more",
+  "description": "Notebook-style flashcards with fullscreen and CSV import.",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Test your knowledge"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Flashcard Deck"
+    },
+    "cards": {
+      "type": "array",
+      "default": []
+    },
+    "csvUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "editorScript": "smh-flashcards-editor",
+  "style": "smh-flashcards-style",
+  "viewScript": "smh-flashcards-view"
+}
