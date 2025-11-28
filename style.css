@@ -244,101 +244,91 @@
   min-height: 460px;
 }
 
-/* Mobile adjustments */
+/* ===========================================================
+   MOBILE TWEAKS – LESS "TOWER", MORE NOTEBOOKLM
+   =========================================================== */
 @media (max-width: 720px) {
   .flashcard-app {
-    padding: 16px 10px 20px;
+    padding: 18px 14px 22px;
     border-radius: 0;
   }
+
   .flashcard-main {
-    grid-template-columns: 40px minmax(0, 1fr) 40px;
-    margin-top: 16px;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    margin-top: 18px;
     margin-bottom: 18px;
-    gap: 10px;
+    gap: 12px;
   }
+
+  .flashcard-nav-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
   .flashcard-card {
-    max-width: 100%;
-    min-height: 360px;
-    padding: 24px 16px 60px;
+    max-width: 92vw;      /* Wider card on mobile */
+    min-height: 340px;    /* Shorter so it doesn’t feel like a tower */
+    padding: 26px 18px 64px;
+    border-radius: 32px;
   }
+
   .flashcard-face {
-    inset: 16px 14px 60px 14px;
-    font-size: 1rem;
+    inset: 18px 16px 64px 16px;
+    font-size: 1.05rem;
   }
+
+  .flashcard-card-meta {
+    font-size: 0.82rem;
+  }
+
   .flashcard-tip {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 }
 
-/* SEO-only content: hidden visually, readable by search engines */
+/* ===========================================================
+   SEO OUTPUT – VISIBLE TO BOTS, NOT TO HUMANS
+   =========================================================== */
+
+/* wrapper rendered by the block */
 .flashcard-seo-content {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
+  position: relative;
+  margin-top: 24px;
+  opacity: 0;
+  height: 0;
   overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
 }
 
-.flashcard-seo-heading,
-.flashcard-seo-list,
-.flashcard-seo-question,
-.flashcard-seo-answer,
-.flashcard-seo-empty {
+/* individual Q/A items */
+.flashcard-seo-item {
   margin: 0;
   padding: 0;
-  color: inherit;
-}
-
-.flashcard-seo-list {
-  display: block;
 }
 
 .flashcard-seo-question {
-  font-weight: 700;
-  margin-top: 10px;
-}
-
-.flashcard-seo-question:first-of-type {
-  margin-top: 0;
+  margin: 12px 0 4px;
+  font-weight: 600;
 }
 
 .flashcard-seo-answer {
-  margin: 4px 0 0;
-  .flashcard-face {
-    inset: 16px 14px 60px 14px;
-    font-size: 1rem;
-  }
-  .flashcard-tip {
-    font-size: 0.78rem;
-  }
+  margin: 0 0 4px;
+  font-weight: 400;
 }
 
-/* SEO-only content: hidden visually, readable by search engines */
-.flashcard-seo-content {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-}
-
+/* reset any theme styles inside SEO block */
 .flashcard-seo-heading,
 .flashcard-seo-list,
 .flashcard-seo-item,
 .flashcard-seo-question,
 .flashcard-seo-answer,
 .flashcard-seo-empty {
-  margin: 0;
-  padding: 0;
   color: inherit;
+  list-style: none;
 }
 
 .flashcard-seo-list {
   display: block;
+  margin: 0;
+  padding: 0;
 }
