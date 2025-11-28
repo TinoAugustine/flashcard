@@ -269,3 +269,30 @@
     font-size: 0.78rem;
   }
 }
+
+/* SEO-only content: hidden visually, readable by search engines */
+.flashcard-seo-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+.flashcard-seo-heading,
+.flashcard-seo-list,
+.flashcard-seo-item,
+.flashcard-seo-question,
+.flashcard-seo-answer,
+.flashcard-seo-empty {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.flashcard-seo-list {
+  display: block;
+}
