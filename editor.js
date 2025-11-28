@@ -235,6 +235,40 @@
       const safeCards = Array.isArray(cards) && cards.length ? cards : [];
 
       const seoList = safeCards.length
+        ? el(
+            'dl',
+            { className: 'flashcard-seo-list' },
+            safeCards.reduce((acc, card, index) => {
+              acc.push(
+                el(
+                  'dt',
+                  { key: `q-${index}`, className: 'flashcard-seo-question' },
+                  card.q
+                )
+              );
+              acc.push(
+                el(
+                  'dd',
+                  { key: `a-${index}`, className: 'flashcard-seo-answer' },
+                  card.a
+                )
+              );
+              return acc;
+            }, [])
+          )
+        : el(
+            'p',
+            { className: 'flashcard-seo-empty' },
+            __('No flashcards available yet.', 'setupmyhotel')
+          );
+
+      return el(
+        'div',
+    save: function (props) {
+      const { title, subtitle, cards } = props.attributes;
+      const safeCards = Array.isArray(cards) && cards.length ? cards : [];
+
+      const seoList = safeCards.length
         ? safeCards.map((card, index) =>
             el(
               'div',
@@ -367,6 +401,22 @@
                 'data-role': 'progress',
               })
             ),
+            el(
+              'p',
+              { className: 'flashcard-tip' },
+              'Tip: Click / tap to flip. Use ← and → keys to move.'
+            )
+          )
+        ),
+        el(
+          'div',
+          { className: 'flashcard-seo-content', 'aria-hidden': 'true' },
+          el('h3', { className: 'flashcard-seo-heading' }, __('Flashcard Q&A', 'setupmyhotel')),
+          seoList
+        )
+      );
+    },
+  });
             el(
               'p',
               { className: 'flashcard-tip' },
