@@ -264,6 +264,29 @@
 
       return el(
         'div',
+    save: function (props) {
+      const { title, subtitle, cards } = props.attributes;
+      const safeCards = Array.isArray(cards) && cards.length ? cards : [];
+
+      const seoList = safeCards.length
+        ? safeCards.map((card, index) =>
+            el(
+              'div',
+              { key: index, className: 'flashcard-seo-item' },
+              el('h4', { className: 'flashcard-seo-question' }, card.q),
+              el('p', { className: 'flashcard-seo-answer' }, card.a)
+            )
+          )
+        : [
+            el(
+              'p',
+              { className: 'flashcard-seo-empty' },
+              __('No flashcards available yet.', 'setupmyhotel')
+            ),
+          ];
+
+      return el(
+        'div',
         {
           className: 'flashcard-app',
           'data-cards': JSON.stringify(safeCards),
@@ -390,6 +413,22 @@
           { className: 'flashcard-seo-content', 'aria-hidden': 'true' },
           el('h3', { className: 'flashcard-seo-heading' }, __('Flashcard Q&A', 'setupmyhotel')),
           seoList
+        )
+      );
+    },
+  });
+            el(
+              'p',
+              { className: 'flashcard-tip' },
+              'Tip: Click / tap to flip. Use ← and → keys to move.'
+            )
+          )
+        ),
+        el(
+          'div',
+          { className: 'flashcard-seo-content', 'aria-hidden': 'true' },
+          el('h3', { className: 'flashcard-seo-heading' }, __('Flashcard Q&A', 'setupmyhotel')),
+          el('div', { className: 'flashcard-seo-list' }, seoList)
         )
       );
     },
