@@ -38,8 +38,6 @@ wp-content/plugins/flashcards-block/
 
 ## 📂 CSV Format
 
-## 📂 CSV Format
-
 Your CSV file must contain two columns:
 
 ```csv

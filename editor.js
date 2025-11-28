@@ -234,22 +234,14 @@
       const { title, subtitle, cards } = props.attributes;
       const safeCards = Array.isArray(cards) && cards.length ? cards : [];
 
-      const seoList = safeCards.length
-        ? safeCards.map((card, index) =>
-            el(
-              'div',
-              { key: index, className: 'flashcard-seo-item' },
-              el('dt', { className: 'flashcard-seo-question' }, card.q),
-              el('dd', { className: 'flashcard-seo-answer' }, card.a)
-            )
-          )
-        : [
-            el(
-              'p',
-              { className: 'flashcard-seo-empty' },
-              __('No flashcards available yet.', 'setupmyhotel')
-            ),
-          ];
+      const seoList = safeCards.map((card, index) =>
+        el(
+          'div',
+          { key: index, className: 'flashcard-seo-item' },
+          el('h4', null, card.q),
+          el('p', null, card.a)
+        )
+      );
 
       return el(
         'div',
@@ -376,9 +368,8 @@
         ),
         el(
           'div',
-          { className: 'flashcard-seo-content', 'aria-hidden': 'true' },
-          el('h3', { className: 'flashcard-seo-heading' }, __('Flashcard Q&A', 'setupmyhotel')),
-          el('dl', { className: 'flashcard-seo-list' }, seoList)
+          { className: 'flashcard-seo-content' },
+          seoList
         )
       );
     },
