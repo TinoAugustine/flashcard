@@ -234,6 +234,15 @@
       const { title, subtitle, cards } = props.attributes;
       const safeCards = Array.isArray(cards) && cards.length ? cards : [];
 
+      const seoList = safeCards.map((card, index) =>
+        el(
+          'div',
+          { key: index, className: 'flashcard-seo-item' },
+          el('h4', null, card.q),
+          el('p', null, card.a)
+        )
+      );
+
       return el(
         'div',
         {
@@ -356,6 +365,11 @@
               'Tip: Click / tap to flip. Use ← and → keys to move.'
             )
           )
+        ),
+        el(
+          'div',
+          { className: 'flashcard-seo-content' },
+          seoList
         )
       );
     },
