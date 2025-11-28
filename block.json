@@ -4,7 +4,7 @@
   "title": "Flashcards (CSV)",
   "category": "widgets",
   "icon": "welcome-learn-more",
-  "description": "Notebook-style flashcards with fullscreen and CSV import.",
+  "description": "Notebook-style flashcards with fullscreen mode, CSV import, and SEO-friendly output.",
   "attributes": {
     "title": {
       "type": "string",
@@ -28,5 +28,6 @@
   },
   "editorScript": "smh-flashcards-editor",
   "style": "smh-flashcards-style",
-  "viewScript": "smh-flashcards-view"
+  "viewScript": "smh-flashcards-view",
+  "render": "file:./flashcards-block.php"
 }
